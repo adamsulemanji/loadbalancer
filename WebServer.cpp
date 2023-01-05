@@ -30,9 +30,13 @@ class WebServer {
             return request_time <= 0;
         }
 
+        void PrintAvailable(int time, int server_num) {
+            std::cout << "At clock cycle " << time << " and server number " << server_num << " processed request from " << request->ip_in << " to " << request->ip_out << std::endl;
+        }
+
         void updateRequest(Request* request) {
             this->request = request;
-            this->request_time = request->num_of_clock_cycles;
+            this->request_time = request->num_clock_cycles;
         }
 
         void print() {
