@@ -1,0 +1,182 @@
+\hypertarget{class_web_server}{}\doxysection{Web\+Server Class Reference}
+\label{class_web_server}\index{WebServer@{WebServer}}
+
+
+Web server class.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_web_server_ad053f4e1808a3c10c7522d0dbbbc031a}{Web\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_web_server_a2cab94c595e504f95c22e1af085e8a28}{update\+Request\+Time}} (float \mbox{\hyperlink{class_web_server_a2de61f824520d4d0d23ca8e96dc4470c}{request\+\_\+time}})
+\begin{DoxyCompactList}\small\item\em Updates the request processing time. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_web_server_a6facc54cbb034d850b16ef48ccaef27c}{is\+Available}} ()
+\begin{DoxyCompactList}\small\item\em Check if the web server is available. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_web_server_adfa6426039835fd03da1ebdff1fa921f}{Print\+Available}} (int time, int server\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Prints a message indicating that the web server has processed a request. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_web_server_adbfa05756231b2c147672ab6c45604ca}{update\+Request}} (\mbox{\hyperlink{class_request}{Request}} $\ast$\mbox{\hyperlink{class_web_server_a076fd03d00964d108f20b061576ea30d}{request}})
+\begin{DoxyCompactList}\small\item\em Updates the current request being processed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_web_server_a7acd4cc34c34e943536a5745e4d73e37}{print}} ()
+\begin{DoxyCompactList}\small\item\em Prints the status of the web server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_web_server_a2de61f824520d4d0d23ca8e96dc4470c}\label{class_web_server_a2de61f824520d4d0d23ca8e96dc4470c}} 
+float {\bfseries request\+\_\+time} = 0
+\begin{DoxyCompactList}\small\item\em request processing time \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_web_server_a076fd03d00964d108f20b061576ea30d}\label{class_web_server_a076fd03d00964d108f20b061576ea30d}} 
+\mbox{\hyperlink{class_request}{Request}} $\ast$ {\bfseries request} = nullptr
+\begin{DoxyCompactList}\small\item\em pointer to the current request being processed \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Web server class. 
+
+This class represents a web server that processes incoming requests and sends responses. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_web_server_ad053f4e1808a3c10c7522d0dbbbc031a}\label{class_web_server_ad053f4e1808a3c10c7522d0dbbbc031a}} 
+\index{WebServer@{WebServer}!WebServer@{WebServer}}
+\index{WebServer@{WebServer}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{WebServer()}{WebServer()}}
+{\footnotesize\ttfamily Web\+Server\+::\+Web\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+Creates a new \mbox{\hyperlink{class_web_server}{Web\+Server}} object.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_web_server_ad053f4e1808a3c10c7522d0dbbbc031a}{WebServer}}()\ \{\}}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_web_server_a6facc54cbb034d850b16ef48ccaef27c}\label{class_web_server_a6facc54cbb034d850b16ef48ccaef27c}} 
+\index{WebServer@{WebServer}!isAvailable@{isAvailable}}
+\index{isAvailable@{isAvailable}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{isAvailable()}{isAvailable()}}
+{\footnotesize\ttfamily bool Web\+Server\+::is\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if the web server is available. 
+
+\begin{DoxyReturn}{Returns}
+True if the web server is available, false otherwise
+\end{DoxyReturn}
+This function returns true if the request processing time is less than or equal to 0, indicating that the web server is available to process a new request. Otherwise, it returns false.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_web_server_a6facc54cbb034d850b16ef48ccaef27c}{isAvailable}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_web_server_a2de61f824520d4d0d23ca8e96dc4470c}{request\_time}}\ <=\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_web_server_a7acd4cc34c34e943536a5745e4d73e37}\label{class_web_server_a7acd4cc34c34e943536a5745e4d73e37}} 
+\index{WebServer@{WebServer}!print@{print}}
+\index{print@{print}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Web\+Server\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints the status of the web server. 
+
+This function prints the request processing time and the incoming and outgoing IP addresses of the current request being processed by the web server. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_web_server_a7acd4cc34c34e943536a5745e4d73e37}{print}}()\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Request\ processing\ time:\ "{}}\ <<\ \mbox{\hyperlink{class_web_server_a2de61f824520d4d0d23ca8e96dc4470c}{request\_time}}\ <<\ std::endl;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_web_server_a076fd03d00964d108f20b061576ea30d}{request}}\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Incoming\ request\ IP:\ "{}}\ <<\ \mbox{\hyperlink{class_web_server_a076fd03d00964d108f20b061576ea30d}{request}}-\/>\mbox{\hyperlink{class_request_a9331de2ccac6bca9a37616d103db6568}{ip\_in}}\ <<\ std::endl;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Outgoing\ response\ IP:\ "{}}\ <<\ \mbox{\hyperlink{class_web_server_a076fd03d00964d108f20b061576ea30d}{request}}-\/>\mbox{\hyperlink{class_request_a789e85de4e06e293c519fa6ed14539f3}{ip\_out}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_web_server_adfa6426039835fd03da1ebdff1fa921f}\label{class_web_server_adfa6426039835fd03da1ebdff1fa921f}} 
+\index{WebServer@{WebServer}!PrintAvailable@{PrintAvailable}}
+\index{PrintAvailable@{PrintAvailable}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{PrintAvailable()}{PrintAvailable()}}
+{\footnotesize\ttfamily void Web\+Server\+::\+Print\+Available (\begin{DoxyParamCaption}\item[{int}]{time,  }\item[{int}]{server\+\_\+num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints a message indicating that the web server has processed a request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & Current clock cycle time \\
+\hline
+{\em server\+\_\+num} & Web server number\\
+\hline
+\end{DoxyParams}
+This function prints a message indicating that the web server has processed a request at the specified clock cycle time and server number.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_web_server_adfa6426039835fd03da1ebdff1fa921f}{PrintAvailable}}(\textcolor{keywordtype}{int}\ time,\ \textcolor{keywordtype}{int}\ server\_num)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}At\ clock\ cycle\ "{}}\ <<\ time\ <<\ \textcolor{stringliteral}{"{}\ and\ server\ number\ "{}}\ <<\ server\_num\ <<\ \textcolor{stringliteral}{"{}\ processed\ request\ from\ "{}}\ <<\ \mbox{\hyperlink{class_web_server_a076fd03d00964d108f20b061576ea30d}{request}}-\/>\mbox{\hyperlink{class_request_a9331de2ccac6bca9a37616d103db6568}{ip\_in}}\ <<\ \textcolor{stringliteral}{"{}\ to\ "{}}\ <<\ \mbox{\hyperlink{class_web_server_a076fd03d00964d108f20b061576ea30d}{request}}-\/>\mbox{\hyperlink{class_request_a789e85de4e06e293c519fa6ed14539f3}{ip\_out}}\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_web_server_adbfa05756231b2c147672ab6c45604ca}\label{class_web_server_adbfa05756231b2c147672ab6c45604ca}} 
+\index{WebServer@{WebServer}!updateRequest@{updateRequest}}
+\index{updateRequest@{updateRequest}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{updateRequest()}{updateRequest()}}
+{\footnotesize\ttfamily void Web\+Server\+::update\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_request}{Request}} $\ast$}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the current request being processed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & Pointer to the request\\
+\hline
+\end{DoxyParams}
+This function updates the current request being processed by the web server and sets the request processing time to the number of clock cycles required to process the request.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_web_server_adbfa05756231b2c147672ab6c45604ca}{updateRequest}}(\mbox{\hyperlink{class_request}{Request}}*\ \mbox{\hyperlink{class_web_server_a076fd03d00964d108f20b061576ea30d}{request}})\ \{}
+\DoxyCodeLine{\ \ \ \ this-\/>request\ =\ \mbox{\hyperlink{class_web_server_a076fd03d00964d108f20b061576ea30d}{request}};}
+\DoxyCodeLine{\ \ \ \ this-\/>\mbox{\hyperlink{class_web_server_a2de61f824520d4d0d23ca8e96dc4470c}{request\_time}}\ =\ request-\/>\mbox{\hyperlink{class_request_a2ed0cb9e42fb9cf00d609a299db3f7fc}{num\_clock\_cycles}};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_web_server_a2cab94c595e504f95c22e1af085e8a28}\label{class_web_server_a2cab94c595e504f95c22e1af085e8a28}} 
+\index{WebServer@{WebServer}!updateRequestTime@{updateRequestTime}}
+\index{updateRequestTime@{updateRequestTime}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{updateRequestTime()}{updateRequestTime()}}
+{\footnotesize\ttfamily void Web\+Server\+::update\+Request\+Time (\begin{DoxyParamCaption}\item[{float}]{request\+\_\+time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the request processing time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request\+\_\+time} & \mbox{\hyperlink{class_request}{Request}} processing time\\
+\hline
+\end{DoxyParams}
+This function updates the request processing time of the web server.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_web_server_a2cab94c595e504f95c22e1af085e8a28}{updateRequestTime}}(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_web_server_a2de61f824520d4d0d23ca8e96dc4470c}{request\_time}})\ \{}
+\DoxyCodeLine{\ \ \ \ this-\/>request\_time\ =\ \mbox{\hyperlink{class_web_server_a2de61f824520d4d0d23ca8e96dc4470c}{request\_time}};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_web_server_8cpp}{Web\+Server.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,167 @@
+\hypertarget{class_load_balancer}{}\doxysection{Load\+Balancer Class Reference}
+\label{class_load_balancer}\index{LoadBalancer@{LoadBalancer}}
+
+
+Load balancer class.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_load_balancer_a9f5f0b9a3171cc733d318b99100f857d}{Load\+Balancer}} (int num\+Servers, int clock\+Cycle\+Time, int max\+Size)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_a9114f14f4bf7b8cd1543d150fa018e5e}{fill\+Queue}} ()
+\begin{DoxyCompactList}\small\item\em Fills the queue with requests. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_a84655c56cb4e86aa9c230c2d12a395d7}{print\+Server\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Prints the status of the servers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_a528909054cb20964cba1fb35ceb9003f}{run}} ()
+\begin{DoxyCompactList}\small\item\em Runs the load balancer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Load balancer class. 
+
+This class represents a load balancer that distributes incoming requests to a group of web servers. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_load_balancer_a9f5f0b9a3171cc733d318b99100f857d}\label{class_load_balancer_a9f5f0b9a3171cc733d318b99100f857d}} 
+\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{LoadBalancer()}{LoadBalancer()}}
+{\footnotesize\ttfamily Load\+Balancer\+::\+Load\+Balancer (\begin{DoxyParamCaption}\item[{int}]{num\+Servers,  }\item[{int}]{clock\+Cycle\+Time,  }\item[{int}]{max\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Servers} & Number of servers \\
+\hline
+{\em clock\+Cycle\+Time} & Clock cycle time \\
+\hline
+{\em max\+Size} & Max size of the requests\\
+\hline
+\end{DoxyParams}
+Creates a new \mbox{\hyperlink{class_load_balancer}{Load\+Balancer}} object with the specified number of servers, clock cycle time, and max size of requests. It also creates the servers and fills the queue with requests.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{class_load_balancer}{LoadBalancer}}(\textcolor{keywordtype}{int}\ numServers,\ \textcolor{keywordtype}{int}\ clockCycleTime,\ \textcolor{keywordtype}{int}\ maxSize)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}LoadBalancer\ created"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\ \ \ \ this-\/>numServers\ =\ numServers;}
+\DoxyCodeLine{\ \ \ \ this-\/>clockCycleTime\ =\ clockCycleTime;}
+\DoxyCodeLine{\ \ \ \ this-\/>maxSize\ =\ maxSize;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ create\ the\ servers}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numServers;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ servers.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_web_server}{WebServer}}());}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_load_balancer_a9114f14f4bf7b8cd1543d150fa018e5e}{fillQueue}}();}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}The\ queue\ is\ filled.\ All\ WebServers\ have\ been\ created."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Queue\ size:\ "{}}\ <<\ requests.size()\ <<\ std::endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_load_balancer_a528909054cb20964cba1fb35ceb9003f}{run}}();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_load_balancer_a9114f14f4bf7b8cd1543d150fa018e5e}\label{class_load_balancer_a9114f14f4bf7b8cd1543d150fa018e5e}} 
+\index{LoadBalancer@{LoadBalancer}!fillQueue@{fillQueue}}
+\index{fillQueue@{fillQueue}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{fillQueue()}{fillQueue()}}
+{\footnotesize\ttfamily void Load\+Balancer\+::fill\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Fills the queue with requests. 
+
+This function adds 20 requests for each server to the queue.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_load_balancer_a9114f14f4bf7b8cd1543d150fa018e5e}{fillQueue}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 20\ *\ numServers;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ requests.push(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_request}{Request}}(maxSize));}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_load_balancer_a84655c56cb4e86aa9c230c2d12a395d7}\label{class_load_balancer_a84655c56cb4e86aa9c230c2d12a395d7}} 
+\index{LoadBalancer@{LoadBalancer}!printServerStatus@{printServerStatus}}
+\index{printServerStatus@{printServerStatus}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{printServerStatus()}{printServerStatus()}}
+{\footnotesize\ttfamily void Load\+Balancer\+::print\+Server\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints the status of the servers. 
+
+This function prints the status of each server in the server list.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_load_balancer_a84655c56cb4e86aa9c230c2d12a395d7}{printServerStatus}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numServers;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ servers[i]-\/>print();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_load_balancer_a528909054cb20964cba1fb35ceb9003f}\label{class_load_balancer_a528909054cb20964cba1fb35ceb9003f}} 
+\index{LoadBalancer@{LoadBalancer}!run@{run}}
+\index{run@{run}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Load\+Balancer\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Runs the load balancer. 
+
+This function runs the load balancer for the specified number of clock cycles. It processes requests and updates the status of the servers during each clock cycle.
+
+Chat\+GPT was used when writing this function.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_load_balancer_a528909054cb20964cba1fb35ceb9003f}{run}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ clockCycleTime;\ ++i)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ Written\ with\ ChatGPT\ *}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::random\_device\ rd;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::mt19937\ gen(rd());}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::uniform\_real\_distribution<>\ dis(0,\ 1);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dis(gen)\ <\ .2)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ requests.push(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_request}{Request}}(maxSize));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ End\ of\ ChatGPT\ code*}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ numServers;\ ++j)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (requests.empty())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ servers[j]-\/>updateRequestTime(servers[j]-\/>request\_time\ -\/\ 1);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (servers[j]-\/>isAvailable())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ servers[j]-\/>PrintAvailable(i,\ j+1);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_request}{Request}}*\ request\ =\ requests.front();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ requests.pop();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ servers[j]-\/>updateRequest(request);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0\ ||\ i\ ==\ clockCycleTime\ -\/\ 1)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ requests.size()\ <<\ \textcolor{stringliteral}{"{}\ requests\ to\ process"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_load_balancer_8cpp}{Load\+Balancer.\+cpp}}\end{DoxyCompactItemize}
